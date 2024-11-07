@@ -9,7 +9,7 @@ env:
 jobs:
   test:
     env:
-      MONGODB_CLUSTER_ADDRESS: cluster0.btvai.mongodb.net
+      MONGODB_CLUSTER_ADDRESS: cluster0.dssua.mongodb.net
       MONGODB_USERNAME: moessam
       MONGODB_PASSWORD: WAmiiEXSxMMSfOrc
       PORT: 8080
@@ -29,9 +29,6 @@ jobs:
         run: npm start & npx wait-on http://127.0.0.1${PORT}
       - name: Run tests
         run: npm test
-      - name: Stop server
-        if: success()
-        run: kill $SERVER_PID
       - name: Output information
         run: "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
   deploy:
