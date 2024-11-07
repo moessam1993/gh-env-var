@@ -10,8 +10,8 @@ jobs:
   test:
     env:
       MONGODB_CLUSTER_ADDRESS: cluster0.dssua.mongodb.net
-      MONGODB_USERNAME: moessam
-      MONGODB_PASSWORD: WAmiiEXSxMMSfOrc
+      MONGODB_USERNAME: moessam93
+      MONGODB_PASSWORD: GSWIX4UuQGq2uGhE
       PORT: 8080
     environment: testing
     runs-on: ubuntu-latest
