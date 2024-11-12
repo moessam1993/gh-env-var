@@ -26,9 +26,25 @@ jobs:
         run: npm ci
       - name: Start server in the background
         run: |
-          npm start &
+          # Start the server in the background
+          npm start > server.log 2>&1 &
           SERVER_PID=$!
-          npx wait-on http://127.0.0.1:${PORT}s
+          echo "Server started with PID $SERVER_PID"
+
+          # Wait up to 2 minutes for the server to start
+          npx wait-on http://127.0.0.1:${PORT} --timeout 120000 || {
+            echo "Server failed to start on time; displaying logs:"
+            cat server.log
+            exit 1
+          }
+          
+          # Check if the server is responding
+          echo "Checking server status with curl:"
+          curl -I http://127.0.0.1:${PORT} || {
+            echo "Server is not responding to curl; displaying logs:"
+            cat server.log
+            exit 1
+          }
       - name: Run tests
         run: npm test
       - name: Output information
