@@ -2,12 +2,12 @@ name: Deployment
 on:
   push:
     branches:
-      - master
       - dev
 env:
   MONGODB_DB_NAME: gha-demo
 jobs:
   test:
+    environment: testing
     env:
       MONGODB_CLUSTER_ADDRESS: cluster0.zz08s.mongodb.net
       MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
