@@ -46,9 +46,6 @@ jobs:
       - name: Output information
         run: |
           echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
-      - name: Stop server
-        if: success()
-        run: kill $SERVER_PID
       
   deploy:
     needs: test
