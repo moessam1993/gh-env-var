@@ -9,11 +9,10 @@ env:
 jobs:
   test:
     env:
-      MONGODB_CLUSTER_ADDRESS: cluster0.dssua.mongodb.net
-      MONGODB_USERNAME: moessam93
-      MONGODB_PASSWORD: GSWIX4UuQGq2uGhE
+      MONGODB_CLUSTER_ADDRESS: cluster0.zz08s.mongodb.net
+      MONGODB_USERNAME: mohamedessam
+      MONGODB_PASSWORD: iw1dJSH8om19mFAk
       PORT: 8080
-    environment: testing
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
